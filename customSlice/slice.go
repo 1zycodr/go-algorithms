@@ -80,3 +80,15 @@ func Append[T any](s Slice[T], values ...T) (Slice[T], error) {
 	}
 	return s, nil
 }
+
+func (s *Slice[T]) Cut(i, j int) (*Slice[T], error) {
+	if i >= j {
+		return nil, fmt.Errorf("invalid indexes")
+	}
+	result := s.array[i:j]
+	return &Slice[T]{
+		array: result,
+		len:   len(result),
+		cap:   cap(result),
+	}, nil
+}

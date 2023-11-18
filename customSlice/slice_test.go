@@ -61,3 +61,21 @@ func TestSliceAppendManyValues(t *testing.T) {
 	require.Equal(t, 1000, slice.Len())
 	require.Equal(t, 1000, slice.Cap())
 }
+
+func TestSliceCut(t *testing.T) {
+	slice := Init(1, 2, 3, 4, 5)
+	partSlice, err := slice.Cut(0, 5)
+	require.NoError(t, err)
+	for i := 0; i < 5; i++ {
+		exp, _ := slice.Get(i)
+		fact, _ := partSlice.Get(i)
+		require.Equal(t, exp, fact)
+	}
+
+	partSlice, err = slice.Cut(0, 0)
+	require.Error(t, err)
+
+	partSlice, err = slice.Cut(0, 5)
+	require.NoError(t, err)
+	require.Equal(t, partSlice.Cap(), slice.Cap())
+}
