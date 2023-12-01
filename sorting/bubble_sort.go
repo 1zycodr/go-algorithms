@@ -9,11 +9,16 @@ import (
 )
 
 func bubbleSort(arr []int) []int { // O(n^2)
-	for i := 0; i < len(arr)-1; i++ {
-		for j := i; j < len(arr); j++ {
-			if arr[i] > arr[j] {
-				arr[i], arr[j] = arr[j], arr[i]
+	for i := 0; i < len(arr); i++ {
+		sorted := true
+		for j := 1; j < len(arr); j++ {
+			if arr[j] < arr[j-1] {
+				sorted = false
+				arr[j], arr[j-1] = arr[j-1], arr[j]
 			}
+		}
+		if sorted {
+			break
 		}
 	}
 	return arr
@@ -21,11 +26,11 @@ func bubbleSort(arr []int) []int { // O(n^2)
 
 func main() {
 	rand.NewSource(time.Now().Unix())
-	n := 10000
+	n := 1000
 
 	arr := make([]int, 0)
 	for i := 0; i < n; i++ {
-		arr = append(arr, rand.Intn(1000))
+		arr = append(arr, rand.Intn(100))
 	}
 
 	arrCopy := make([]int, n)
