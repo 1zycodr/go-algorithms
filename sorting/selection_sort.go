@@ -9,25 +9,27 @@ import (
 )
 
 func selectionSort(arr []int) []int { // O(n^2)
-	for i := 0; i < len(arr); i++ { // O(n)
-		idxMin := i
-		for j := i + 1; j < len(arr); j++ { // O((n - 1) / 2 - 1)
-			if arr[j] < arr[idxMin] {
-				idxMin = j
+	fmt.Println(arr)
+	for i := 0; i < len(arr)-1; i++ {
+		indMin := i
+		for j := i + 1; j < len(arr); j++ {
+			if arr[j] < arr[indMin] {
+				indMin = j
 			}
 		}
-		arr[i], arr[idxMin] = arr[idxMin], arr[i]
+		arr[i], arr[indMin] = arr[indMin], arr[i]
+		fmt.Println(arr)
 	}
 	return arr
 }
 
 func main() {
 	rand.NewSource(time.Now().Unix())
-	n := 100000
+	n := 10
 
 	arr := make([]int, 0)
 	for i := 0; i < n; i++ {
-		arr = append(arr, rand.Intn(1000))
+		arr = append(arr, rand.Intn(100))
 	}
 
 	arrCopy := make([]int, n)
