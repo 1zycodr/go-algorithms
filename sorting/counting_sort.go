@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-func countingSort(arr []int) []int { // O(n + m), m = max(arr)
+func countingSort(arr []int) []int { // O(n + m), m = max(arr) - min(arr) + 1
 	max, min := math.MinInt32, math.MaxInt32
 	for _, v := range arr { // O(n)
 		if v > max {
@@ -24,7 +24,7 @@ func countingSort(arr []int) []int { // O(n + m), m = max(arr)
 		temp[v-min]++
 	}
 	k := 0
-	for i, v := range temp { // O(m), m = max(arr)
+	for i, v := range temp { // O(m), m = max(arr) - min(arr) + 1
 		for v != 0 {
 			v--
 			arr[k] = i + min
