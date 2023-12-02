@@ -9,7 +9,7 @@ import (
 )
 
 func selectionSort(arr []int) []int { // O(n^2)
-	fmt.Println(arr)
+	//fmt.Println(arr)
 	for i := 0; i < len(arr)-1; i++ {
 		indMin := i
 		for j := i + 1; j < len(arr); j++ {
@@ -18,7 +18,7 @@ func selectionSort(arr []int) []int { // O(n^2)
 			}
 		}
 		arr[i], arr[indMin] = arr[indMin], arr[i]
-		fmt.Println(arr)
+		//fmt.Println(arr)
 	}
 	return arr
 }

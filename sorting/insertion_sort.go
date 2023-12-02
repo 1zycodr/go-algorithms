@@ -9,7 +9,6 @@ import (
 )
 
 func insertionSort(arr []int) []int { // O(n^2)
-	//fmt.Println(arr)
 	for i := 1; i < len(arr); i++ {
 		curr := arr[i]
 		j := i - 1
@@ -18,7 +17,6 @@ func insertionSort(arr []int) []int { // O(n^2)
 			j--
 		}
 		arr[j+1] = curr
-		//fmt.Println(arr)
 	}
 	return arr
 }
