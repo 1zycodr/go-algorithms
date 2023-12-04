@@ -25,7 +25,7 @@ func merge(arr1, arr2 []int) []int {
 	return res
 }
 
-func mergeSort(arr []int) []int {
+func mergeSort(arr []int) []int { // O(n log n) даже в самом худшем случае
 	if len(arr) <= 1 {
 		return arr
 	}

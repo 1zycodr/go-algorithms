@@ -22,7 +22,7 @@ func partition(arr []int, i, j int) int {
 	return w
 }
 
-func quickSort(arr []int, i, j int) {
+func quickSort(arr []int, i, j int) { // O(n log n) - средний, O(n ^ 2) в худшем случае
 	if i == j || len(arr) == 1 {
 		return
 	}
